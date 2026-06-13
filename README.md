@@ -90,8 +90,3 @@ Frontend (React UI):
 👉 http://localhost:3000/
 ```
 
-## 🤙 Connect Community
-
-💬 Join the LoopKaka Discord Community!
-Got questions, doubts, or want to discuss topics from my videos?
-Join our friendly Discord server to connect, learn, and grow together 👉 [https://discord.gg/BZwkqTsbND](https://discord.gg/BZwkqTsbND)

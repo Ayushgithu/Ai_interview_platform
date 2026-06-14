@@ -63,7 +63,16 @@ const StartInterview = ({onClick}) => {
     return <>
     <div className="start-interview-container">
         <form className="start-interview-form" onSubmit={handleFormSubmit}>
-            <h1>MockMaster AI Interview</h1>
+            {/* Logo display with larger size */}
+            <div className="logo-container" style={{ textAlign: 'center', marginBottom: '-10px' }}>
+                <img 
+                    src="/logo192.png" 
+                    alt="MockMaster Logo" 
+                    style={{ width: '180px', height: '180px', objectFit: 'contain', marginBottom: '-60px' }} 
+                />
+            </div>
+            
+            <h1 style={{ marginTop: '-5px'}}>MockMaster AI Interview</h1>
 
             { error && <p className="error-message">{error}</p> }
 
@@ -106,4 +115,4 @@ const StartInterview = ({onClick}) => {
     </>
 }
 
-export default StartInterview
+export default StartInterview;

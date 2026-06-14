@@ -8,7 +8,7 @@ const Report = ({report}) => {
 
     return <>
         <div className="report-container">
-            <h1 className="report-header">Interview Report</h1>
+            <h1 className="report-header">MockMaster Interview Report</h1>
             <div className="report-cards">
                 <div className="report-card">
                     <h3>Overall Score</h3>

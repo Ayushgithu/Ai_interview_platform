@@ -2,7 +2,6 @@ import { useState } from "react";
 import "../assets/css/StartInterview.css"
 import { generateQuestionsAPI, startInterviewAPI } from "../services/interview";
 
-
 const ALLOWED_FILE = ["application/pdf"];
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
@@ -16,12 +15,7 @@ const StartInterview = ({onClick}) => {
     const handleFileUpload = (e) => {
         try {
             const file = e.target.files[0];
-
-            if(!file) {
-                return;
-            }
-
-            console.log(file.type)
+            if(!file) return;
 
             if(!ALLOWED_FILE.includes(file.type)) {
                 setError("Only PDF allowed");
@@ -29,7 +23,7 @@ const StartInterview = ({onClick}) => {
             }
 
             if(file.size > MAX_FILE_SIZE) {
-                setError("File size mus be under 5mb.");
+                setError("File size must be under 5mb.");
                 return;
             }
 
@@ -42,7 +36,6 @@ const StartInterview = ({onClick}) => {
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-
         if(!jobTitle || !jobDescription || !resume) {
             setError("All fields are required!!!");
             return;
@@ -52,21 +45,14 @@ const StartInterview = ({onClick}) => {
         setError("");
 
         try {
-
             const formData = new FormData();
             formData.append("job_title", jobTitle);
             formData.append("job_description", jobDescription);
             formData.append("resume", resume);
 
-            // generate question endpoint
             const response = await generateQuestionsAPI(formData);
-
-            // Start interview endpoint
             const data = await startInterviewAPI(response.session_id);
-
             onClick(data, response.session_id);
-
-
         } catch (error) {
             console.error("Error: ", error);
         } finally {
@@ -77,7 +63,7 @@ const StartInterview = ({onClick}) => {
     return <>
     <div className="start-interview-container">
         <form className="start-interview-form" onSubmit={handleFormSubmit}>
-            <h1>AI Interview</h1>
+            <h1>MockMaster AI Interview</h1>
 
             { error && <p className="error-message">{error}</p> }
 
@@ -116,7 +102,6 @@ const StartInterview = ({onClick}) => {
                 { loading ? "Generating Questions" : "Start Interview"}
             </button>
         </form>
-
     </div>
     </>
 }

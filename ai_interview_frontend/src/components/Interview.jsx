@@ -9,7 +9,7 @@ const Interview = ({ skipQuestion, endInterview, state }) => {
         {/* Col1: AI Bot */}
         <div className="interview-column">
             <div className="bot-section">
-                <h2>AI Interviewer</h2>
+                <h2>MockMaster AI Interviewer</h2>
                 {
                     state === APP_CONSTANT.ASKING && 
                     <div className="gif-placeholder">
